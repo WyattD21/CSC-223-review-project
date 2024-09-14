@@ -1,42 +1,42 @@
-// This is the main to test the pointType class
 #include <iostream>
-#include "pointType.h"
+#include "circleType.h"
 using namespace std;
 
 int main() { 
+
+  cout<<"Testing the default constructor" <<endl;
+  circleType<int> Cir1;
+  cout<<"Center point: ";
+  Cir1.printCenterPoint();
+  cout <<"Circumference point: ";
+  Cir1.printCircumPoint();
   
-  cout << "From default constructor" << endl;
-  pointType<int> p1I;
-  pointType<double> p1D;
-  cout << "Integer point: ";
-  p1I.print();
-  cout<< "Double point: ";
-  p1D.print();
+  cout<<"Testing constructor with parameters"<<endl;
+  circleType<double>Cir2(5.3,7.2,-6.2,3.3);
+  cout << "Center point: ";
+  Cir2.printCenterPoint();
+  cout<< "Circumference point: ";
+  Cir2.printCircumPoint();
+
+  cout<<"Testing the setCenterPoint,setCircumPoint"<<endl;
+  Cir1.setCenterPoint(3,7);
+  Cir1.setCircumPoint(6,-2);
+  cout<<"Center point: ";
+  Cir1.printCenterPoint();
+  cout <<"Circumference point: ";
+  Cir1.printCircumPoint();
+
+  cout<<"Testing the getCenterPoint,getCircumPoint"<<endl;
+  double x1, y1, x2, y2;
+  Cir2.getCenterPoint(x1,y1);
+  Cir2.getCircumPoint(x2,y2);
+  cout << "x1= " << x1 << " y1= " << y1 << "x2= " << x2 << " y2= " << y2 << endl;
+
+  cout<< "Testing operations: " << endl;
+  Cir2.print();
+  cout << endl;
   
-  cout << "From parameterized constructor" << endl;
-  pointType<int>p2I(3,5);
-  pointType<double>p2D(3.5,5.5);
-  cout << "Integer point: ";
-  p2I.print();
-  cout<< "Double point: ";
-  p2D.print();
-
-  cout << "\n(Integer) Distance = ";
-  double distance = p1I- p2I;
-  cout << distance << endl;
-
-  cout<< "\n(Double)Distance = ";
-  distance = p1D - p2D;
-  cout << distance << endl;
-
   
-
+  
   return 0;
-
-
-
-};
-
-
-
-
+}
